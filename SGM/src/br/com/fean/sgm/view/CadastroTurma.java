@@ -1,28 +1,28 @@
 package br.com.fean.sgm.view;
 
-import br.com.level.celesc.modelo.Concessionaria;
-import br.com.level.celesc.service.ServiceFactory;
+import br.com.fean.sgm.model.Turma;
+import br.com.fean.sgm.service.ServiceFactory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class CadastroTipoPessoa extends javax.swing.JDialog {
+public class CadastroTurma extends javax.swing.JDialog {
 
-    private Concessionaria concessionariaSelecionada;
+    private Turma turmaSelecionada;
 
-    public CadastroTipoPessoa(java.awt.Frame parent, boolean modal) {
+    public CadastroTurma(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         bExcluir.setVisible(false);
         this.tfCodigo.setEnabled(false);
     }
 
-    public CadastroTipoPessoa(Concessionaria concessionaria, java.awt.Frame parent, boolean modal) {
+    public CadastroTurma(Turma turma, java.awt.Frame parent, boolean modal) {
         this(parent, modal);
-        this.concessionariaSelecionada = concessionaria;
-        if (concessionariaSelecionada != null) {
-            tfCodigo.setText(concessionaria.getId().toString());
-            tfNome.setText(concessionaria.getNome());
+        this.turmaSelecionada = turma;
+        if (turmaSelecionada != null) {
+            tfCodigo.setText(turma.getTurId().toString());
+            tfNome.setText(turma.getTurNome());
             // Mostra o botão Excluir     
             bExcluir.setVisible(true);
         }
@@ -50,7 +50,7 @@ public class CadastroTipoPessoa extends javax.swing.JDialog {
         setTitle("Cadastro de Concesssionárias");
         setResizable(false);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados da Concessionária"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados da Turma"));
 
         lNome.setText("Código:");
 
@@ -147,37 +147,37 @@ public class CadastroTipoPessoa extends javax.swing.JDialog {
     }//GEN-LAST:event_bCancelarActionPerformed
 
     private void bSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSalvarActionPerformed
-        if (concessionariaSelecionada != null) {
-            concessionariaSelecionada.setNome(tfNome.getText());
+        if (turmaSelecionada != null) {
+            turmaSelecionada.setTurNome(tfNome.getText());
             try {
-                ServiceFactory.getConcessionariaService().alterarConcessionaria(concessionariaSelecionada);
+                ServiceFactory.getTurmaService().alterarTurma(turmaSelecionada);
                 JOptionPane.showMessageDialog(this, "Concessionária Alterada com Sucesso!");
 
             } catch (Exception ex) {
-                Logger.getLogger(CadastroTipoPessoa.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroTurma.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            Concessionaria concessionaria = new Concessionaria(tfNome.getText());
+            Turma turma = new Turma(tfNome.getText());
             try {
-                ServiceFactory.getConcessionariaService().incluirConcessionaria(concessionaria);
+                ServiceFactory.getTurmaService().incluirTurma(turma);
                 JOptionPane.showMessageDialog(this, "Concessionária Inlcuída com Sucesso!");
             } catch (Exception ex) {
-                Logger.getLogger(CadastroTipoPessoa.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroTurma.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        concessionariaSelecionada = null;
+        turmaSelecionada = null;
         this.dispose();
     }//GEN-LAST:event_bSalvarActionPerformed
 
     private void bExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bExcluirActionPerformed
-        if (concessionariaSelecionada != null) {
+        if (turmaSelecionada != null) {
             try {
-                ServiceFactory.getConcessionariaService().excluirConcessionaria(concessionariaSelecionada);
+                ServiceFactory.getTurmaService().excluirTurma(turmaSelecionada);
                 JOptionPane.showMessageDialog(this, "Concessionária Excluída com Sucesso!");
             } catch (Exception ex) {
-                Logger.getLogger(CadastroTipoPessoa.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(CadastroTurma.class.getName()).log(Level.SEVERE, null, ex);
             }
-            concessionariaSelecionada = null;
+            turmaSelecionada = null;
             this.dispose();
         }
     }//GEN-LAST:event_bExcluirActionPerformed

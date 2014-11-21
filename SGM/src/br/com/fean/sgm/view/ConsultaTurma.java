@@ -1,19 +1,19 @@
 package br.com.fean.sgm.view;
 
-import br.com.level.celesc.modelo.Concessionaria;
-import br.com.level.celesc.util.ConcessionariaTableModel;
+import br.com.fean.sgm.model.Turma;
+import br.com.fean.sgm.util.TurmaTableModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-public class ConsultaTipoPessoa extends javax.swing.JDialog {
+public class ConsultaTurma extends javax.swing.JDialog {
 
-    public ConsultaTipoPessoa(java.awt.Frame parent, boolean modal) {
+    public ConsultaTurma(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
 
         initComponents();
         // Lógica para manipular uma linha do JTable quando esta é selecionada    
-        ListSelectionModel linhaModeloSelecao = jtConcessionarias.getSelectionModel();
+        ListSelectionModel linhaModeloSelecao = jtTurmas.getSelectionModel();
         linhaModeloSelecao.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
@@ -25,17 +25,15 @@ public class ConsultaTipoPessoa extends javax.swing.JDialog {
 
                 // Verifica se existe uma linha selecionada. O
                 // valor deve ser maior ou igual a 0, que é o número da linha
-                if (jtConcessionarias.getSelectedRow() >= 0) {
+                if (jtTurmas.getSelectedRow() >= 0) {
                     
-                    Integer linhaSelecionada = jtConcessionarias.getSelectedRow();
-                    //Integer linhaSelecionada = Integer.parseInt(jtConcessionarias.getValueAt(jtConcessionarias.getSelectedRow(),0 ).toString());
-
-                    Concessionaria concessionariaSelecionado = ((ConcessionariaTableModel) jtConcessionarias.getModel()).getConcessionarias().get(linhaSelecionada);
-                    if (concessionariaSelecionado != null) {
-                        CadastroTipoPessoa cadastroConcessionaria = new CadastroTipoPessoa(concessionariaSelecionado, null, true);
-                        cadastroConcessionaria.setLocationRelativeTo(jScrollPane1.getParent());
-                        cadastroConcessionaria.setVisible(true);
-                        jtConcessionarias.setModel(new ConcessionariaTableModel(""));
+                    Integer linhaSelecionada = jtTurmas.getSelectedRow();
+                    Turma turmaSelecionado = ((TurmaTableModel) jtTurmas.getModel()).getTurmas().get(linhaSelecionada);
+                    if (turmaSelecionado != null) {
+                        CadastroTurma cadastroTurma = new CadastroTurma(turmaSelecionado, null, true);
+                        cadastroTurma.setLocationRelativeTo(jScrollPane1.getParent());
+                        cadastroTurma.setVisible(true);
+                        jtTurmas.setModel(new TurmaTableModel());
                     }
                 }
             }
@@ -54,7 +52,7 @@ public class ConsultaTipoPessoa extends javax.swing.JDialog {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtConcessionarias = new javax.swing.JTable();
+        jtTurmas = new javax.swing.JTable();
         bNovo = new javax.swing.JButton();
         bCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -62,7 +60,7 @@ public class ConsultaTipoPessoa extends javax.swing.JDialog {
         btnPesquisar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Consulta de Concessionárias");
+        setTitle("Consulta de Turmas");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
@@ -70,10 +68,10 @@ public class ConsultaTipoPessoa extends javax.swing.JDialog {
             }
         });
 
-        jtConcessionarias.setModel(new ConcessionariaTableModel(""));
-        jtConcessionarias.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jtConcessionarias.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(jtConcessionarias);
+        jtTurmas.setModel(new TurmaTableModel());
+        jtTurmas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jtTurmas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(jtTurmas);
 
         bNovo.setText("Novo");
         bNovo.setMaximumSize(null);
@@ -146,9 +144,9 @@ public class ConsultaTipoPessoa extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNovoActionPerformed
-        CadastroTipoPessoa cadastroConcessionaria = new CadastroTipoPessoa(null, true);
-        cadastroConcessionaria.setLocationRelativeTo(this);
-        cadastroConcessionaria.setVisible(true);
+        CadastroTurma cadastroTurma = new CadastroTurma(null, true);
+        cadastroTurma.setLocationRelativeTo(this);
+        cadastroTurma.setVisible(true);
     }//GEN-LAST:event_bNovoActionPerformed
 
     private void bCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCancelarActionPerformed
@@ -157,18 +155,23 @@ public class ConsultaTipoPessoa extends javax.swing.JDialog {
     }//GEN-LAST:event_bCancelarActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        jtConcessionarias.updateUI();
-        jtConcessionarias.getRowHeight(0);
-        jtConcessionarias.setModel(new ConcessionariaTableModel(""));
-        jtConcessionarias.getColumnModel().getColumn(0).setPreferredWidth(60);
-        jtConcessionarias.getColumnModel().getColumn(1).setPreferredWidth(400);
+        jtTurmas.updateUI();
+        jtTurmas.getRowHeight(0);
+        jtTurmas.setModel(new TurmaTableModel());
+        jtTurmas.getColumnModel().getColumn(0).setPreferredWidth(60);
+        jtTurmas.getColumnModel().getColumn(1).setPreferredWidth(60);
+        jtTurmas.getColumnModel().getColumn(2).setPreferredWidth(80);
+        jtTurmas.getColumnModel().getColumn(3).setPreferredWidth(400);
 
     }//GEN-LAST:event_formWindowActivated
 
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-         jtConcessionarias.setModel(new ConcessionariaTableModel(txtFiltro.getText()));
-         jtConcessionarias.getColumnModel().getColumn(0).setPreferredWidth(60);
-         jtConcessionarias.getColumnModel().getColumn(1).setPreferredWidth(400);
+        jtTurmas.setModel(new TurmaTableModel());
+        jtTurmas.getColumnModel().getColumn(0).setPreferredWidth(60);
+        jtTurmas.getColumnModel().getColumn(1).setPreferredWidth(60);
+        jtTurmas.getColumnModel().getColumn(2).setPreferredWidth(80);
+        jtTurmas.getColumnModel().getColumn(3).setPreferredWidth(400);
+
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -177,7 +180,7 @@ public class ConsultaTipoPessoa extends javax.swing.JDialog {
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jtConcessionarias;
+    private javax.swing.JTable jtTurmas;
     private javax.swing.JTextField txtFiltro;
     // End of variables declaration//GEN-END:variables
 }

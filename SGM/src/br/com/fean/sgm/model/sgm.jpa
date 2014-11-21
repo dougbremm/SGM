@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings status="GENERATED" id="_1416531950011145" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <jpa:entity class="PlanoTrabalho" visibile="true" minimized="false" id="_1416531950011148">
+        <jpa:table name="plano_trabalho"/>
+        <jpa:attributes>
+            <jpa:id name="ptrId" attribute-type="java.lang.Integer" visibile="true" id="_1416531950011159">
+                <jpa:column name="ptr_id" unique="false" nullable="false" insertable="true" updatable="true" table="plano_trabalho"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="ptrTpiId" optional="false" attribute-type="int" visibile="true" id="_1416531950011160">
+                <jpa:column name="ptr_tpi_id" unique="false" nullable="false" insertable="true" updatable="true" table="plano_trabalho"/>
+            </jpa:basic>
+            <jpa:basic name="ptrQuaId" optional="false" attribute-type="int" visibile="true" id="_1416531950011161">
+                <jpa:column name="ptr_qua_id" unique="false" nullable="false" insertable="true" updatable="true" table="plano_trabalho"/>
+            </jpa:basic>
+            <jpa:basic name="ptrPesId" optional="false" attribute-type="int" visibile="true" id="_1416531950011162">
+                <jpa:column name="ptr_pes_id" unique="false" nullable="false" insertable="true" updatable="true" table="plano_trabalho"/>
+            </jpa:basic>
+            <jpa:basic name="ptrAno" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1416531950011163">
+                <jpa:column name="ptr_ano" unique="false" nullable="true" insertable="true" updatable="true" table="plano_trabalho"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Pessoa" visibile="true" minimized="false" id="_1416531950011149">
+        <jpa:table name="pessoa"/>
+        <jpa:attributes>
+            <jpa:id name="pesId" attribute-type="java.lang.Integer" visibile="true" id="_1416531950011164">
+                <jpa:column name="pes_id" unique="false" nullable="false" insertable="true" updatable="true" table="pessoa"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="pesTpeId" optional="false" attribute-type="int" visibile="true" id="_1416531950011165">
+                <jpa:column name="pes_tpe_id" unique="false" nullable="false" insertable="true" updatable="true" table="pessoa"/>
+            </jpa:basic>
+            <jpa:basic name="pesTurId" optional="false" attribute-type="int" visibile="true" id="_1416531950011166">
+                <jpa:column name="pes_tur_id" unique="false" nullable="false" insertable="true" updatable="true" table="pessoa"/>
+            </jpa:basic>
+            <jpa:basic name="pesNome" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950011167">
+                <jpa:column name="pes_nome" unique="false" nullable="true" insertable="true" updatable="true" table="pessoa" length="100"/>
+            </jpa:basic>
+            <jpa:basic name="pesEmail" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950011168">
+                <jpa:column name="pes_email" unique="false" nullable="true" insertable="true" updatable="true" table="pessoa" length="100"/>
+            </jpa:basic>
+            <jpa:basic name="pesSenha" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950011169">
+                <jpa:column name="pes_senha" unique="false" nullable="true" insertable="true" updatable="true" table="pessoa" length="10"/>
+            </jpa:basic>
+            <jpa:basic name="pesFone" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950011170">
+                <jpa:column name="pes_fone" unique="false" nullable="true" insertable="true" updatable="true" table="pessoa" length="50"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="TipoPessoa" visibile="true" minimized="false" id="_1416531950011150">
+        <jpa:table name="tipo_pessoa"/>
+        <jpa:attributes>
+            <jpa:id name="tpeId" attribute-type="java.lang.Integer" visibile="true" id="_1416531950011171">
+                <jpa:column name="tpe_id" unique="false" nullable="false" insertable="true" updatable="true" table="tipo_pessoa"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="tpeNome" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950011172">
+                <jpa:column name="tpe_nome" unique="false" nullable="true" insertable="true" updatable="true" table="tipo_pessoa" length="100"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="SituacaoProducaoIntelectual" visibile="true" minimized="false" id="_1416531950011151">
+        <jpa:table name="situacao_producao_intelectual"/>
+        <jpa:attributes>
+            <jpa:id name="spiId" attribute-type="java.lang.Integer" visibile="true" id="_1416531950011173">
+                <jpa:column name="spi_id" unique="false" nullable="false" insertable="true" updatable="true" table="situacao_producao_intelectual"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="spiNome" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950011174">
+                <jpa:column name="spi_nome" unique="false" nullable="true" insertable="true" updatable="true" table="situacao_producao_intelectual" length="150"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ProducaoIntelectual" visibile="true" minimized="false" id="_1416531950011152">
+        <jpa:table name="producao_intelectual"/>
+        <jpa:attributes>
+            <jpa:id name="pinId" attribute-type="java.lang.Integer" visibile="true" id="_1416531950011175">
+                <jpa:column name="pin_id" unique="false" nullable="false" insertable="true" updatable="true" table="producao_intelectual"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="pinTpiId" optional="false" attribute-type="int" visibile="true" id="_1416531950011176">
+                <jpa:column name="pin_tpi_id" unique="false" nullable="false" insertable="true" updatable="true" table="producao_intelectual"/>
+            </jpa:basic>
+            <jpa:basic name="pinLpuId" optional="false" attribute-type="int" visibile="true" id="_1416531950011177">
+                <jpa:column name="pin_lpu_id" unique="false" nullable="false" insertable="true" updatable="true" table="producao_intelectual"/>
+            </jpa:basic>
+            <jpa:basic name="pinSpiId" optional="false" attribute-type="int" visibile="true" id="_1416531950011178">
+                <jpa:column name="pin_spi_id" unique="false" nullable="false" insertable="true" updatable="true" table="producao_intelectual"/>
+            </jpa:basic>
+            <jpa:basic name="pinTitulo" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950011179">
+                <jpa:column name="pin_titulo" unique="false" nullable="true" insertable="true" updatable="true" table="producao_intelectual" length="150"/>
+            </jpa:basic>
+            <jpa:basic name="pinDataPublicacao" optional="true" attribute-type="java.util.Date" visibile="true" id="_1416531950011180">
+                <jpa:column name="pin_data_publicacao" unique="false" nullable="true" insertable="true" updatable="true" table="producao_intelectual"/>
+                <jpa:temporal>DATE</jpa:temporal>
+            </jpa:basic>
+            <jpa:basic name="pinResumo" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950011181">
+                <jpa:column name="pin_resumo" unique="false" nullable="true" insertable="true" updatable="true" table="producao_intelectual" length="65535"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="pinObservacao" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950011182">
+                <jpa:column name="pin_observacao" unique="false" nullable="true" insertable="true" updatable="true" table="producao_intelectual" length="65535"/>
+                <jpa:lob/>
+            </jpa:basic>
+            <jpa:basic name="pinDataEnvio" optional="true" attribute-type="java.util.Date" visibile="true" id="_1416531950011183">
+                <jpa:column name="pin_data_envio" unique="false" nullable="true" insertable="true" updatable="true" table="producao_intelectual"/>
+                <jpa:temporal>TIMESTAMP</jpa:temporal>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Qualis" visibile="true" minimized="false" id="_1416531950011153">
+        <jpa:table name="qualis"/>
+        <jpa:attributes>
+            <jpa:id name="quaId" attribute-type="java.lang.Integer" visibile="true" id="_1416531950011184">
+                <jpa:column name="qua_id" unique="false" nullable="false" insertable="true" updatable="true" table="qualis"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="quaNome" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950011185">
+                <jpa:column name="qua_nome" unique="false" nullable="true" insertable="true" updatable="true" table="qualis" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="quaImportancia" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1416531950011186">
+                <jpa:column name="qua_importancia" unique="false" nullable="true" insertable="true" updatable="true" table="qualis"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="TipoProducaoIntelectual" visibile="true" minimized="false" id="_1416531950011154">
+        <jpa:table name="tipo_producao_intelectual"/>
+        <jpa:attributes>
+            <jpa:id name="tpiId" attribute-type="java.lang.Integer" visibile="true" id="_1416531950011187">
+                <jpa:column name="tpi_id" unique="false" nullable="false" insertable="true" updatable="true" table="tipo_producao_intelectual"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="tpiSpiId" optional="false" attribute-type="int" visibile="true" id="_1416531950011188">
+                <jpa:column name="tpi_spi_id" unique="false" nullable="false" insertable="true" updatable="true" table="tipo_producao_intelectual"/>
+            </jpa:basic>
+            <jpa:basic name="tpiNome" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950011189">
+                <jpa:column name="tpi_nome" unique="false" nullable="true" insertable="true" updatable="true" table="tipo_producao_intelectual" length="150"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="LocalPublicacao" visibile="true" minimized="false" id="_1416531950011155">
+        <jpa:table name="local_publicacao"/>
+        <jpa:attributes>
+            <jpa:id name="lpuId" attribute-type="java.lang.Integer" visibile="true" id="_1416531950011190">
+                <jpa:column name="lpu_id" unique="false" nullable="false" insertable="true" updatable="true" table="local_publicacao"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="lpuQuaId" optional="false" attribute-type="int" visibile="true" id="_1416531950011191">
+                <jpa:column name="lpu_qua_id" unique="false" nullable="false" insertable="true" updatable="true" table="local_publicacao"/>
+            </jpa:basic>
+            <jpa:basic name="lpuNome" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950011192">
+                <jpa:column name="lpu_nome" unique="false" nullable="true" insertable="true" updatable="true" table="local_publicacao" length="255"/>
+            </jpa:basic>
+            <jpa:basic name="lpuUrl" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950011193">
+                <jpa:column name="lpu_url" unique="false" nullable="true" insertable="true" updatable="true" table="local_publicacao" length="255"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Turma" visibile="true" minimized="false" id="_1416531950011156">
+        <jpa:table name="turma"/>
+        <jpa:attributes>
+            <jpa:id name="turId" attribute-type="java.lang.Integer" visibile="true" id="_1416531950012194">
+                <jpa:column name="tur_id" unique="false" nullable="false" insertable="true" updatable="true" table="turma"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="turAno" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1416531950012195">
+                <jpa:column name="tur_ano" unique="false" nullable="true" insertable="true" updatable="true" table="turma"/>
+            </jpa:basic>
+            <jpa:basic name="turSemestre" optional="true" attribute-type="java.lang.Integer" visibile="true" id="_1416531950012196">
+                <jpa:column name="tur_semestre" unique="false" nullable="true" insertable="true" updatable="true" table="turma"/>
+            </jpa:basic>
+            <jpa:basic name="turNome" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950012197">
+                <jpa:column name="tur_nome" unique="false" nullable="true" insertable="true" updatable="true" table="turma" length="100"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="Papel" visibile="true" minimized="false" id="_1416531950011157">
+        <jpa:table name="papel"/>
+        <jpa:attributes>
+            <jpa:id name="papId" attribute-type="java.lang.Integer" visibile="true" id="_1416531950012198">
+                <jpa:column name="pap_id" unique="false" nullable="false" insertable="true" updatable="true" table="papel"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+            <jpa:basic name="papNome" optional="true" attribute-type="java.lang.String" visibile="true" id="_1416531950012199">
+                <jpa:column name="pap_nome" unique="false" nullable="true" insertable="true" updatable="true" table="papel" length="255"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity class="ProducaoIntelectualPessoa" visibile="true" minimized="false" id="_1416531950011158">
+        <jpa:table name="producao_intelectual_pessoa"/>
+        <jpa:attributes>
+            <jpa:id name="pipPesId" attribute-type="int" visibile="true" id="_1416531950012200">
+                <jpa:column name="pip_pes_id" unique="false" nullable="false" insertable="true" updatable="true" table="producao_intelectual_pessoa"/>
+            </jpa:id>
+            <jpa:id name="pipPinId" attribute-type="int" visibile="true" id="_1416531950012201">
+                <jpa:column name="pip_pin_id" unique="false" nullable="false" insertable="true" updatable="true" table="producao_intelectual_pessoa"/>
+            </jpa:id>
+            <jpa:basic name="pipPapId" optional="false" attribute-type="int" visibile="true" id="_1416531950012202">
+                <jpa:column name="pip_pap_id" unique="false" nullable="false" insertable="true" updatable="true" table="producao_intelectual_pessoa"/>
+            </jpa:basic>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:diagram id="_1416531950011146">
+        <plane elementRef="_1416531950011145" id="_1416531950011147_p"/>
+    </jpa:diagram>
+</jpa:entity-mappings>

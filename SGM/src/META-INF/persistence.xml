@@ -1,47 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-  <persistence-unit name="CelescPU" transaction-type="RESOURCE_LOCAL">
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="SGMPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:sqlserver://floripark.dyndns.info:1435;databaseName=CELESC"/>
-      <property name="javax.persistence.jdbc.user" value="celesc"/>
-      <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-      <property name="javax.persistence.jdbc.password" value="celesc"/>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+      <property name="hibernate.connection.autoReconnect" value="true"/>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sgm?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.user" value="fean"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="Fean2014"/>
       <property name="hibernate.cache.provider_class" value="org.hibernate.cache.NoCacheProvider"/>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.format_sql" value="true"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
     </properties>
   </persistence-unit>
   <persistence-unit name="DEFAULT_PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>br.com.level.celesc.modelo.Usuario</class>
-    <class>br.com.level.celesc.modelo.Empreiteira</class>
-    <class>br.com.level.celesc.modelo.Ocorrencia</class>
-    <class>br.com.level.celesc.modelo.Servico</class>
-    <class>br.com.level.celesc.modelo.UnidadeConsumidora</class>
-    <class>br.com.level.celesc.modelo.EmpresaUsuario</class>
-    <class>br.com.level.celesc.modelo.TipoLocalidade</class>
-    <class>br.com.level.celesc.modelo.Reclamacao</class>
-    <class>br.com.level.celesc.modelo.Retorno</class>
-    <class>br.com.level.celesc.modelo.ReferenciaLivro</class>
-    <class>br.com.level.celesc.modelo.Entrega</class>
-    <class>br.com.level.celesc.modelo.Situacao</class>
-    <class>br.com.level.celesc.modelo.Erro</class>
-    <class>br.com.level.celesc.modelo.Localidade</class>
-    <class>br.com.level.celesc.modelo.Leiturista</class>
-    <class>ReferenciaLivro</class>
-    <class>Ocorrencia</class>
-    <class>Concessionaria</class>
-    <class>EmpresaUsuario</class>
-    <class>Retorno</class>
-    <class>Entrega</class>
-    <class>Leiturista</class>
-    <class>Usuario</class>
-    <class>Situacao</class>
-    <class>Tipolocalidade</class>
-    <class>Servico</class>
-    <class>Empreiteira</class>
-    <class>Erro</class>
-    <class>Localidade</class>
-    <class>Reclamacao</class>
+    <class>br.com.fean.sgm.model.Turma</class>
+    <class>br.com.fean.sgm.model.ProducaoIntelectual</class>
+    <class>br.com.fean.sgm.model.Qualis</class>
+    <class>br.com.fean.sgm.model.TipoProducaoIntelectual</class>
+    <class>br.com.fean.sgm.model.ProducaoIntelectualPessoa</class>
+    <class>br.com.fean.sgm.model.TipoPessoa</class>
+    <class>br.com.fean.sgm.model.SituacaoProducaoIntelectual</class>
+    <class>br.com.fean.sgm.model.PlanoTrabalho</class>
+    <class>br.com.fean.sgm.model.LocalPublicacao</class>
+    <class>br.com.fean.sgm.model.Pessoa</class>
+    <class>br.com.fean.sgm.model.Papel</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
       <property name="javax.persistence.jdbc.password" value="app"/>
